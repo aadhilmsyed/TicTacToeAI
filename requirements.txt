@@ -3,6 +3,5 @@ numpy
 pandas
 matplotlib
 pygame
-random
 copy
 math
