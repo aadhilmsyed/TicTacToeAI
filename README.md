@@ -11,7 +11,6 @@ This project is an implementation of the classic game Tic Tac Toe with AI player
   - Monte Carlo AI: Uses Monte Carlo simulations to decide moves.
   - Minimax AI: Implements the Minimax algorithm for optimal play.
   - Alpha-Beta AI: Optimizes Minimax with Alpha-Beta pruning for faster decision-making.
-- Customizable board size (default is 3x3).
 - Graphical interface using Pygame.
 
 ## Installation
