@@ -8,7 +8,8 @@ from copy import deepcopy
 class Player:
     def __init__(self, symbol):
         self.symbol = symbol
-        self.opponent_symbol = 'X' if self.symbol == 'O' else 'O'
+        self.opponent = None
+        self.history = []
 
     def play(self, env):
         pass
@@ -183,7 +184,7 @@ class MinimaxAI(Player):
         # Initialize the Maximum Value to Negative Infinity
         min_val = math.inf
         min_row, min_col = None, None
-        symbol = self.opponent_symbol
+        symbol = self.opponent.symbol
         
         # Find the Best Move
         for row, col in possible:
@@ -295,7 +296,7 @@ class AlphaBetaAI(Player):
         # Initialize the Maximum Value to Negative Infinity
         min_val = math.inf
         min_row, min_col = None, None
-        symbol = self.opponent_symbol
+        symbol = self.opponent.symbol
         
         # Find the Best Move
         for row, col in possible:
@@ -358,4 +359,3 @@ class AlphaBetaAI(Player):
 
         # If no winner and no tie, the game continues
         return None
-
