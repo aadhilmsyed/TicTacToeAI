@@ -19,6 +19,8 @@ class TicTacToe:
         self.board = np.full(board_shape, '', dtype=str)
         self.player1 = player1
         self.player2 = player2
+        self.player1.opponent = self.player2
+        self.player2.opponent = self.player1
         self.current_player = self.player1
         self.game_over = False
         self.size = 300  # Size of the Pygame window
@@ -128,6 +130,7 @@ class TicTacToe:
         empty_cells = [(row, col) for row in range(3) for col in range(3) if self.board[row, col] == '']
         row, col = random.choice(empty_cells)
         self.make_move(row, col)
+        return row, col
             
     def switch_player(self):
         """
@@ -164,13 +167,18 @@ class TicTacToe:
                     sys.exit()
             
             # Get a Move from the Player Agent
+            print("------------------")
+            print(f"     {self.current_player.symbol}'s Turn     ")
+            print("------------------")
             row, col = self.current_player.play(self)
 
             # Play the Move from the Player if it is Valid, otherwise play random move
             if 0 <= row < 3 and 0 <= col < 3 and self.board[row, col] == '':  # Assume valid move is returned
                 self.make_move(row, col)
+                self.current_player.history.append((row, col))
             else:
-                self.make_random_move()
+                row, col = self.make_random_move()
+                self.current_player.history.append((row, col))
             
             # Print the Current State of the Board
             print(self.board)
