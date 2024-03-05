@@ -25,11 +25,17 @@ pip install -r requirements.txt
 
 Navigate to the directory containing the files on your terminal and run the following command:
 
+Without Seed:
 ```
 python main.py -p1 <player1> -p2 <player2>
 ```
+With Seed:
+```
+python main.py -p1 <player1> -p2 <player2> -seed <seed_number>
+```
 
-Be sure to replace `<player1>` and `<player2>` with one of the following: `human`, `simpleAI`, `randomAI`, `monteCarloAI`, `minimaxAI`, or `alphaBetaAI`.
+Be sure to replace `<player1>` and `<player2>` with one of the following: `human`, `simpleAI`, `randomAI`, `monteCarloAI`, `minimaxAI`, or `alphaBetaAI`. Replace seed with the random seed number that you wish to use. If no arguments are specified, by default, `-p1` and `-p2` will be set to `human` and `-seed` will be set to 0.
+
 When playing as a human, simply click on the tile that you'd like to play your move on, and the game will update the tile accordingly.
 
 Note: Player 1 will always be 'X' and Player 2 will always be 'O'
@@ -46,4 +52,6 @@ python main.py -p1 human -p2 monteCarloAI
 ```
 python main.py -p1 monteCarloAI -p2 alphaBetaAI
 ```
-
+```
+python main.py -p1 randomAI -p2 alphaBetaAI -seed 42
+```
